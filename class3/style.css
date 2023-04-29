@@ -1,0 +1,9 @@
+/* syntax 
+selector{
+    property:value;
+} */
+
+h1{
+    color:brown;
+    background-color: beige;
+}
