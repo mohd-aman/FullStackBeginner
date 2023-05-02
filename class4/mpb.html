@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Padding Border</title>
+    <style>
+        .container{
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            /* margin: 10px; */
+            /* margin-bottom: 10px;
+            margin-top: 20px;   margin collapse.
+            margin-left:200px;
+            padding: 10px;
+            padding-left: 20px;
+             */
+
+             /* top rigth bottom left  */
+             margin: 10px 20px 30px 40px;
+            /* first one top, bottom and second one applies to left and right */
+             /* padding: 10px 20px; */
+            /* first one to top last one to bottom and middle one to left and right */
+            padding: 10px 20px 30px;
+            border: 10px solid black;
+            /* border-radius: 50px; */
+            border-top-left-radius: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+</body>
+</html>
