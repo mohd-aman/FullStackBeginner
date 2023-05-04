@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box</title>
+</head>
+<style>
+    .container{
+        height: 500px;
+        background-color: grey;
+        margin: 100px;
+        display: flex;
+
+        /* it interchanges the main and cross axis */
+        /* flex-direction: column; */
+
+        /* main axis */
+        /* justify-content:space-around;  */
+        /* cross axis */
+        /* align-items:center; */
+        /* flex-wrap: wrap; */
+
+    }
+
+    .box{
+        height: 100px;
+        width: 100px;
+        background-color: yellow;
+        border:2px solid coral;
+        margin:5px;
+       /* display: inline-block; */
+    }
+
+    .one{
+        flex-grow: 3;
+    }
+
+    .two{
+        flex-shrink:2 ;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <!-- <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div> -->
+    </div>
+</body>
+</html>
