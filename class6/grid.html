@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            /* background-color: red; */
+            /* grid-template-columns: 100px 100px 100px 100px 100px; */
+            /* grid-template-columns: repeat(20,100px); */
+            /* grid-template-columns: 1fr 2fr 1fr 1fr 1fr; */
+            /* grid-template-columns: repeat(5,1fr); */
+            /* grid-template-rows: 100px 100px 100px 100px 100px; */
+            /* grid-template-rows: repeat(5,1fr); */
+
+            /* short hand for above two  */
+            grid-template: repeat(5,1fr)/repeat(5,1fr);
+
+            /* works when container width is more than grid is utilizing */
+            /* justify-content: center;
+            align-content: center; */
+            /* shorthand for above two  */
+            /* first one is align second one is justify  */
+            /* place-content: center center; */
+
+            /* justify-items: center;
+            align-items: center; */
+            /* short hand for above two  */
+            /* place-items: center center; */
+
+            /* works when someone try to put or give col/row-end or start value out of grid */
+            
+            /* grid-auto-rows: 50px;
+            grid-auto-columns: 50px; */
+
+            /* row-gap: 20px;
+            column-gap: 30px; */
+            /* shorthand */
+            /* first will be given to rows and second will be given to column  */
+            /* gap:40px 20px; */
+            /* gap:20px; */
+
+        }
+        .item-first{
+            background-color: yellow;
+            /* grid-row-start: 2;
+            grid-row-end:4; */
+            /* short hand for the above two property */
+            /* grid-row: 2/4; */
+
+            /* grid-column-start: 2;
+            grid-column-end: 5; */
+            /* short hand for the above two property  */
+            /* grid-column: 2/ span 4; */
+
+            /* short hand for grid-row and grid-column  */
+            /* first value row start second col start third row end fourth col end  */
+            grid-area: 2/2/4/5;
+
+            /* justify-self: center;
+            align-self: center; */
+            /* short hand for above two  */
+            /* first value is align-self second one is justify self  */
+            /* place-self: end start; */
+
+            /* These was used to show grid-auto-row and col behavior */
+            /* grid-row-start: 9;
+            grid-row-end:10;
+            grid-column-start:1;
+            grid-column-end:2; */
+
+        }
+        .item-second{
+            background-color: aqua;
+            grid-area: 1/8/2/10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-first"></div>
+        <div class="item-second"></div>
+        <!-- <div class="item-third"></div> -->
+    </div>
+</body>
+</html>
