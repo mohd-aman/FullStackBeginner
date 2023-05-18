@@ -3,35 +3,36 @@
 <html>
     <head>
         <title>Portfolio</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <header>
-            <div>
-               <nav>
-                   <div>
-                       <div>
-                           <img src="./assets/Scaler Logo.png" width="100" height="100" alt="Scaler Logo">
+        <header id="header">
+            <div class="container">
+               <nav class="flex item-center justify-between">
+                   <div class="left flex justify-right">
+                       <div class="logo">
+                           <img src="./assets/scaler-academy logo 2.png" width="50" height="50" alt="Scaler Logo">
                        </div>
                        <div>
-                           <a href="#">Home</a>
-                           <a href="#">About</a>
-                           <a href="#">Project</a>
-                           <a href="#">Blog</a>
+                           <a href="#header">Home</a>
+                           <a href="#about-me">About</a>
+                           <a href="#project">Projects</a>
+                           <a href="#contact">Contact Us</a>
                        </div>
                    </div>
                </nav>
             </div>
 
-            <div>
-                <div>
+            <div class="hero flex item-center justify-between">
+                <div class="left justify-center">
                     <img src="./assets/mrinal.jpg" alt="Profile Photo">
                 </div>
-                <div>
-                    <h2>Onkar Tarar</h2>
-                    <h1>I'm a Frontend Developer</h1>
+                <div class="right">
+                    <h2>Mrinal Bhattacharya</h2>
+                    <h1>I'm a Frontend <br> <span>Developer</span> </h1>
                     <p>Description</p>
                     <div>
-                        <button>Download Resume</button>
+                        <button class="btn">Download Resume</button>
                     </div>
                 </div>
             </div>
@@ -39,16 +40,16 @@
 
         </header>
 
-        <section>
-            <div>
-                <div>
-                    <img src="./assets//mrinal_profile.jpg" alt="">
+        <section id="about-me" class="about">
+            <div class="container flex item-center">
+                <div class="left">
+                    <img src="./assets//mrinal_profile.jpg" width="400" alt="">
                 </div>
-                <div>
+                <div class="right">
                     <h1>About <span>Me</span></h1>
                     <h3>Hello! I am Onkar Tarar </h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque adipisci distinctio obcaecati aliquid, quia tempora quis optio repudiandae officia earum? Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                    <div>
+                    <div class="socials flex">
                         <a href="https://in.linkedin.com/in/mohd-aman"> <img src="./assets/linkedIn.png" width="40" alt=""> </a>
                         <a href="#"><img src="./assets/leet logo.png" width="40" alt=""></a>
                         <a href="#"><img src="./assets/github logo.png" width="40" alt=""></a>
@@ -58,45 +59,49 @@
             </div>
         </section>
 
-        <section>
-            <div>
-                <h1>My Projects</h1>
+        <section id="project" class="services">
+            <div class="container">
+                <h1 class="services-head">My Projects</h1>
                 <p>I mostly work with HTML ,CSS ,JavaScript , React and Node</p>
-                <div>
-                    <div>
-                        <div>
-                            <img src="./assets/calculator png.png" alt="calculator image">
+                <div >
+                    <div class="card-grid">
+                        <div class="card">
+                            <img src="./assets/calculator png.png" width="40" alt="calculator image">
                             <h2>Calculator</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, debitis?</p>
                         </div>
-                        <div>
-                            <img src="./assets/cart png.png" alt="cart image">
+                        <div class="card">
+                            <img src="./assets/cart png.png" width="40" alt="cart image">
                             <h2>Cart</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, debitis?</p>
                         </div>
-                        <div>
-                            <img src="./assets/to do list.png" alt="todo Icon">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptatum, dolorum minus laudantium est explicabo blanditiis voluptatibus nulla? Dolores est harum pariatur minima. Nostrum veritatis dolore officia, excepturi suscipit corporis!</p>
+                        <div class="card">
+                            <h2>Todo List</h2>
+                            <img src="./assets/to do list.png" width="40" alt="todo Icon">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
+
+        <section id="contact" class="contact-form">
             <h2>Get in Touch</h2>
+            <form class="contact-headng" id="contact">
             <label>
                 <span>Name</span>
-                <input type="text" placeholder="Name">
+                <input class="form_input" type="text" placeholder="Name">
             </label>
             <label >
                 <span>Email</span>
-                <input type="email" placeholder="Email">
+                <input class="form_input" type="email" placeholder="Email">
             </label>
             <label>
                 <span>Message</span>
-                <textarea placeholder="Message"></textarea>
+                <textarea class="form_input" placeholder="Message"></textarea>
             </label>
-            <input type="submit" value="Send">
+            <input class="form_input submit_button" type="submit" value="Send">
+            </form>
         </section>
     </body>
 </html>
