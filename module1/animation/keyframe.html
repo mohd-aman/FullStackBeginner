@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container{
+            height: 200px;
+            width: 200px;
+            position: relative;
+            /* background-color: black; */
+            transform: rotate(25deg);
+        }
+        .box{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: yellow;
+            /* animation-name: move-box;
+            animation-duration: 5s;
+            animation-iteration-count: 2; */
+            /* animation-direction: alternate; */
+            /* animation-fill-mode: forwards;
+            animation-timing-function: ease-in; */
+
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: move-box 3s linear 1s infinite alternate;
+            border-radius: 50%;
+        }
+
+        @keyframes move-box{
+            0%{
+                left:0px;
+                top:0px;
+                background-color: blue;
+            }
+            25%{
+                left:0px;
+                top:100%;
+                transform: translateY(-100%);
+                /* border-radius: 50%; */
+                background-color: red;
+            }
+            50%{
+                left:100%;
+                top:100%;
+                transform: translate(-100%,-100%);
+                background-color:darkgray;
+            }
+            75%{
+                left:100%;
+                top:0px;
+                transform: translateX(-100%);
+                /* border-radius: 20px; */
+                background-color: green;
+            }
+            100%{
+                left:0px;
+                top:0px;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

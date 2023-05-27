@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 4rem;
+    position: relative;
+}
+
+h1::after{
+    content: "|";
+    color: yellow;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    animation: typing 3s steps(30) infinite alternate,
+                line 0.3s infinite alternate;
+}
+
+@keyframes typing{
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes line{
+    50%{
+        color: black;
+    }
+}
