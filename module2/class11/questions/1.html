@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Say Hello</button>
+    
+    <script>
+      //Q1 on Clicking the Button append hello to the page
+      let body = document.querySelector("body");
+      let button = document.querySelector("button");
+      button.addEventListener("click",function(){
+        let p = document.createElement("p");
+        p.innerText = "Hello";
+        
+        body.appendChild(p);
+      })
+
+    </script>
+  </body>
+</html>
