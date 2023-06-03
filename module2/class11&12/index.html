@@ -50,6 +50,30 @@
     // let h1Element = document.querySelector("h1");
     // h1Element.remove();
 
+    //// creat element with attribute
+    let div = document.createElement("div");
+    div.innerText = "I am a div"
+    console.log(div);
+    //setAttribute and getAttribute
+
+    // div.setAttribute("class","first-div");
+    // div.setAttribute("id","the-div");
+
+    div.setAttribute("class","first second"); // it will override
+
+    // div.setAttribute("customAttr","randomValue")
+
+    // let className = div.getAttribute("class");
+    // console.log(className)
+    // let idName = div.getAttribute("id");
+    // console.log(idName)
+
+    // let ListOfClass = div.classList;
+    // console.log(ListOfClass)
+    div.classList.add("third");
+    div.classList.add("fourth");
+    
+
 
 </script>
 </html>
