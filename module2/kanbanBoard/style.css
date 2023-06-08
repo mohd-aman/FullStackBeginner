@@ -93,3 +93,34 @@
     height: 3rem;
     width: 5rem;
 }
+
+.main-cont{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+}
+
+.ticket-cont{
+    height: 10rem;
+    width: 15rem;
+    background-color: yellow;
+}
+
+.ticket-color{
+    height: 1rem;
+
+}
+
+.ticket-id{
+    background-color: grey;
+    height: 1.5rem;
+    font-weight: 600;
+}
+
+.ticket-area{
+    height: 7.5rem;
+    padding: 5px;
+    font-size: 1.25rem;
+}
