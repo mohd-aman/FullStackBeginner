@@ -63,8 +63,11 @@
 .modal-cont{
     height: 50vh;
     width: 50vw;
-    display: flex;
+    display: none;
     border: 2px solid grey;
+    position: fixed;
+    left: 25vw;
+    top: 25vh;
 }
 
 .textarea-cont{
