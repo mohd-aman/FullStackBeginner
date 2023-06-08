@@ -1,5 +1,9 @@
 let addBtn = document.querySelector(".add-btn");
-let modal = document.querySelector(".modal-cont")
+let modal = document.querySelector(".modal-cont");
+let allPriorityColor = document.querySelectorAll(".priority-color");
+let textArea = document.querySelector(".textarea-cont");
+let mainCont = document.querySelector(".main-cont");
+
 let addModal = true;
 
 addBtn.addEventListener("click",function(){
@@ -11,3 +15,45 @@ addBtn.addEventListener("click",function(){
         addModal = true; // setting it for next click.
     }
 })
+
+textArea.addEventListener("keydown",function(e){
+    // console.log(e);
+    let key = e.key;
+    if(key == "Enter"){
+
+        createTicket();
+        textArea.value = "";
+        modal.style.display = "none";
+        addModal = true
+    }
+})
+
+
+for(let i=0;i<allPriorityColor.length;i++){
+allPriorityColor[i].addEventListener("click",function(){
+        for(let j=0;j<allPriorityColor.length;j++){
+            if(allPriorityColor[j].classList.contains("active")){
+                allPriorityColor[j].classList.remove("active");
+            }
+        }
+        allPriorityColor[i].classList.add("active");
+})
+}
+
+
+function createTicket(){
+
+{/* <div class="ticket-cont">
+    <div class="ticket-color green"></div>
+    <div class="ticket-id">#eidut3</div>
+    <div class="ticket-area">Some Task</div>
+</div> */}
+
+    let ticketCont = document.createElement('div');
+    ticketCont.setAttribute("class","ticket-cont");
+    ticketCont.innerHTML = `<div class="ticket-color green"></div>
+                            <div class="ticket-id">#eidut3</div>
+                            <div class="ticket-area">Some Task</div>`
+    // console.log(ticketCont)
+    mainCont.append(ticketCont);
+}

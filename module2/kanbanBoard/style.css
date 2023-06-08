@@ -108,7 +108,7 @@
 .ticket-cont{
     height: 10rem;
     width: 15rem;
-    background-color: yellow;
+    background-color: aliceblue;
 }
 
 .ticket-color{
@@ -126,4 +126,8 @@
     height: 7.5rem;
     padding: 5px;
     font-size: 1.25rem;
+}
+
+.active{
+    border: 5px solid yellow;
 }
