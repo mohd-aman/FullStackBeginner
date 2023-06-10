@@ -109,6 +109,7 @@
     height: 10rem;
     width: 15rem;
     background-color: aliceblue;
+    position: relative;
 }
 
 .ticket-color{
@@ -127,6 +128,13 @@
 .ticket-area{
     height: 7.5rem;
     padding: 5px;
+    font-size: 1.25rem;
+}
+
+.lock-unlock{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
     font-size: 1.25rem;
 }
 
