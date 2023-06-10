@@ -120,6 +120,8 @@
     background-color: grey;
     height: 1.5rem;
     font-weight: 600;
+    font-size: 0.75rem;
+    padding-left: 10px;
 }
 
 .ticket-area{
