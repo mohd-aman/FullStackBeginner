@@ -5,6 +5,7 @@ let textArea = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let removeBtn = document.querySelector(".remove-btn");
 
+let color = ["red","blue","green","black"];
 let modalPriorityColor = "black";
 var uid = new ShortUniqueId();
 
@@ -56,7 +57,7 @@ allPriorityColor[i].addEventListener("click",function(){
         // console.log(allPriorityColor[i]);
         // console.log(allPriorityColor[i].classList);
         modalPriorityColor = allPriorityColor[i].classList[1];
-        console.log(modalPriorityColor);
+        // console.log(modalPriorityColor);
 })
 }
 
@@ -83,4 +84,32 @@ function createTicket(task){
         if(removeFlag)
             ticketCont.remove();
     })
+
+    //handle priority Color change
+    let ticketColor = ticketCont.querySelector(".ticket-color");
+    
+    ticketColor.addEventListener("click",function(){
+        // console.log(ticketColor);
+        // console.log(ticketColor.classList[1]);
+        let currentColor = ticketColor.classList[1];
+        let currentColorIndex = color.findIndex(function(col){
+            return col == currentColor;
+        });
+
+        // for(let i=0;i<color.length;i++){
+        //     if(color[i] == currentColor){
+        //         currentColorIndex = i;
+        //         break;
+        //     }
+        // }
+        // console.log(currentColorIndex);
+        // ["red","blue","green","black"]
+        // [   0,     1,      2,     3]
+        let nextColorIndex = (currentColorIndex+1)%color.length;
+        let nextColor = color[nextColorIndex];
+        console.log(nextColor);
+        ticketColor.classList.remove(currentColor);
+        ticketColor.classList.add(nextColor);
+    })
+
 }
