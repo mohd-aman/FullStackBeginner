@@ -102,6 +102,9 @@ allPriorityColor[i].addEventListener("click",function(){
 
 
 function createTicket(task,modalPriorityColor,ticketId){
+    if(task == ""){
+        return;
+    }
     let id;
     if(ticketId){
         id = ticketId
@@ -126,6 +129,17 @@ function createTicket(task,modalPriorityColor,ticketId){
     updateLocalStorage();
 
     //handle delete of ticket
+    handleDelete(ticketCont,id);
+
+    //handle priority Color change
+    handlePriorityColor(ticketCont,id);
+    
+
+    //handle lock and unlock icon
+    handleLockUnlock(ticketCont,id);
+}
+
+function handleDelete(ticketCont,id){
     ticketCont.addEventListener("click",function(){
         if(removeFlag){
             ticketCont.remove();
@@ -137,8 +151,9 @@ function createTicket(task,modalPriorityColor,ticketId){
             updateLocalStorage();
         }
     })
+}
 
-    //handle priority Color change
+function handlePriorityColor(ticketCont,id){
     let ticketColor = ticketCont.querySelector(".ticket-color");
     
     ticketColor.addEventListener("click",function(){
@@ -178,8 +193,9 @@ function createTicket(task,modalPriorityColor,ticketId){
         // console.log(ticketArr);
         updateLocalStorage();
     })
+}
 
-    //handle lock and unlock icon
+function handleLockUnlock(ticketCont,id){
     let lockUnlockBtn = ticketCont.querySelector(".lock-unlock i");
     let taskArea = ticketCont.querySelector(".ticket-area");
 
@@ -209,7 +225,6 @@ function createTicket(task,modalPriorityColor,ticketId){
         updateLocalStorage();
     })
 }
-
 
 function updateLocalStorage(){
     let strArr = JSON.stringify(ticketArr);
