@@ -4,7 +4,7 @@ let allPriorityColor = document.querySelectorAll(".priority-color");
 let textArea = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let removeBtn = document.querySelector(".remove-btn");
-
+let allFilterColor = document.querySelectorAll(".color");
 let color = ["red","blue","green","black"];
 let modalPriorityColor = "black";
 var uid = new ShortUniqueId();
@@ -31,6 +31,31 @@ removeBtn.addEventListener("click",function(){
         removeFlag = true;
     }
 })
+
+for(let i=0;i<allFilterColor.length;i++){
+allFilterColor[i].addEventListener("click",function(){
+    let allTicketsColor = document.querySelectorAll(".ticket-color");
+    // console.log(allFilterColor[i]);
+    let currentSelected = allFilterColor[i].classList[1];
+    // console.log(currentSelected);
+    for(let j=0;j<allTicketsColor.length;j++){
+        let currentTicketColor = allTicketsColor[j].classList[1];
+        // console.log(currentTicketColor);
+        if(currentSelected == currentTicketColor){
+            allTicketsColor[j].parentElement.style.display = "block";
+        }else{
+            allTicketsColor[j].parentElement.style.display = "none";
+        }
+    }
+})
+
+allFilterColor[i].addEventListener("dblclick",function(){
+    let allTicketsColor = document.querySelectorAll(".ticket-color");
+    for(let j=0;j<allTicketsColor.length;j++){
+        allTicketsColor[j].parentElement.style.display = "block";
+    }
+})
+}
 
 textArea.addEventListener("keydown",function(e){
     // console.log(e);
