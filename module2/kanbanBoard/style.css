@@ -1,3 +1,11 @@
+:root{
+    --red:#D64933;
+    --blue:#92DCE5;
+    --darkBlue:#2B303A;
+    --light:#EEE5E9;
+    --grey:#7C7C7C;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -27,19 +35,19 @@
 }
 
 .red{
-    background-color: red;
+    background-color: var(--red);
 }
 
 .blue{
-    background-color: blue;
+    background-color: var(--blue);
 }
 
 .green{
-    background-color: green;
+    background-color: var(--grey);
 }
 
 .black{
-    background-color: black;
+    background-color: var(--darkBlue);
 }
 
 .action-btn-cont{
@@ -118,7 +126,6 @@
 }
 
 .ticket-id{
-    background-color: grey;
     height: 1.5rem;
     font-weight: 600;
     font-size: 0.75rem;
