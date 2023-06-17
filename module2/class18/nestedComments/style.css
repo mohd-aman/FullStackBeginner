@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 1rem 3rem;
+}
+
+.comment-container{
+    padding-left: 0.5rem;
+    /* position: relative; */
+    border-left: 1px solid black;
+    
+}
+/* 
+.comment-container::before{
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: black;
+    position: absolute;
+} */
+
+.comment-card{
+    padding: 1rem;
+    margin-bottom: 10px;
+}
+
+.comment-reply-container{
+    margin-left: 5rem;
+}
+
+.reply{
+    color: red;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0 0 1rem;
+}
+
+.reply:hover{
+    cursor: pointer;
+}
+
+/* if comment-container is not the first child of it's parent then give it margin left  */
+.comment-container:not(:first-child){
+    margin-left: 4rem;
+}
