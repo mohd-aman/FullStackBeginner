@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 10rem;
+}
+.star-container{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.gold{
+    color: gold;
+}
