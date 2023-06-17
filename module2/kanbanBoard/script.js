@@ -5,6 +5,7 @@ let textArea = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let removeBtn = document.querySelector(".remove-btn");
 let allFilterColor = document.querySelectorAll(".color");
+let upperDiv = document.querySelector(".toolbox-cont");
 let color = ["red","blue","green","black"];
 let modalPriorityColor = "black";
 var uid = new ShortUniqueId();
@@ -25,43 +26,83 @@ if(localStorage.getItem("tickets")){
     }
 }
 
-addBtn.addEventListener("click",function(){
-    if(addModal){
-        modal.style.display = "flex"; // show it
-        addModal = false; // setting variable for next click.
-    }else{
-        modal.style.display = "none";// hide it
-        addModal = true; // setting it for next click.
+upperDiv.addEventListener("click",function(e){
+    console.log(e.target); // it will give me where the event occured
+    if(e.target.classList[1] == "fa-plus"){
+        // console.log("Add Btn clicked");
+        if(addModal){
+            modal.style.display = "flex"; // show it
+            addModal = false; // setting variable for next click.
+        }else{
+            modal.style.display = "none";// hide it
+            addModal = true; // setting it for next click.
+        }
+    }else if(e.target.classList[1] == "fa-trash"){
+        if(removeFlag){
+            removeBtn.style.color = "black";
+            removeFlag = false;
+        }else{
+            removeBtn.style.color = "red";
+            removeFlag = true;
+        }
+        // console.log("Delete Btn clicked");
+    }else if(e.target.classList[0] == "color"){
+        let allTicketsColor = document.querySelectorAll(".ticket-color");
+    // console.log(allFilterColor[i]);
+        let currentSelected = e.target.classList[1];
+        console.log(currentSelected);
+    // console.log(currentSelected);
+        for(let j=0;j<allTicketsColor.length;j++){
+            let currentTicketColor = allTicketsColor[j].classList[1];
+            // console.log(currentTicketColor);
+            if(currentSelected == currentTicketColor){
+                allTicketsColor[j].parentElement.style.display = "block";
+            }else{
+                allTicketsColor[j].parentElement.style.display = "none";
+            }
+    }
     }
 })
 
-removeBtn.addEventListener("click",function(){
-    if(removeFlag){
-        removeBtn.style.color = "black";
-        removeFlag = false;
-    }else{
-        removeBtn.style.color = "red";
-        removeFlag = true;
-    }
-})
+
+
+// addBtn.addEventListener("click",function(){
+//     if(addModal){
+//         modal.style.display = "flex"; // show it
+//         addModal = false; // setting variable for next click.
+//     }else{
+//         modal.style.display = "none";// hide it
+//         addModal = true; // setting it for next click.
+//     }
+// })
+
+// removeBtn.addEventListener("click",function(){
+//     if(removeFlag){
+//         removeBtn.style.color = "black";
+//         removeFlag = false;
+//     }else{
+//         removeBtn.style.color = "red";
+//         removeFlag = true;
+//     }
+// })
 
 for(let i=0;i<allFilterColor.length;i++){
 
-allFilterColor[i].addEventListener("click",function(){
-    let allTicketsColor = document.querySelectorAll(".ticket-color");
-    // console.log(allFilterColor[i]);
-    let currentSelected = allFilterColor[i].classList[1];
-    // console.log(currentSelected);
-    for(let j=0;j<allTicketsColor.length;j++){
-        let currentTicketColor = allTicketsColor[j].classList[1];
-        // console.log(currentTicketColor);
-        if(currentSelected == currentTicketColor){
-            allTicketsColor[j].parentElement.style.display = "block";
-        }else{
-            allTicketsColor[j].parentElement.style.display = "none";
-        }
-    }
-})
+// allFilterColor[i].addEventListener("click",function(){
+//     let allTicketsColor = document.querySelectorAll(".ticket-color");
+//     // console.log(allFilterColor[i]);
+//     let currentSelected = allFilterColor[i].classList[1];
+//     // console.log(currentSelected);
+//     for(let j=0;j<allTicketsColor.length;j++){
+//         let currentTicketColor = allTicketsColor[j].classList[1];
+//         // console.log(currentTicketColor);
+//         if(currentSelected == currentTicketColor){
+//             allTicketsColor[j].parentElement.style.display = "block";
+//         }else{
+//             allTicketsColor[j].parentElement.style.display = "none";
+//         }
+//     }
+// })
 
 allFilterColor[i].addEventListener("dblclick",function(){
     let allTicketsColor = document.querySelectorAll(".ticket-color");
