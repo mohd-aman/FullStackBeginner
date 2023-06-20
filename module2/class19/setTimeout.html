@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeout</title>
+</head>
+<body>
+    <button>Stop printing</button>
+
+    <script>
+        let btn = document.querySelector("button");
+
+        let timer = setTimeout(function(){
+          console.log("hello");  
+        },3000)
+
+        btn.addEventListener("click",function(){
+            clearTimeout(timer);
+        })
+
+    </script>
+</body>
+</html>
