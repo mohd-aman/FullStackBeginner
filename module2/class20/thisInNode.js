@@ -40,7 +40,7 @@ let anotherObject = {
     name:"Vivek",
     age:"Don't know",
     sayHello:function(){
-        console.log("value of this inside sayHello: ", this)
+        console.log("value of this inside sayHello: ", this);
         function gxn(){
             console.log("value of this inside gxn: ", this);
         }
