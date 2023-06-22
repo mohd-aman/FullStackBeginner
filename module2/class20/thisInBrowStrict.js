@@ -26,7 +26,7 @@ let obj = {
         }
         console.log("inside sayHello ", this);
         console.log(this.name);
-        this.gxn(); // ?
+        this.gxn(); // ?   this = obj here. obj.gxn = undefined, obj.gxn() = undefined()
        
     }
 }
