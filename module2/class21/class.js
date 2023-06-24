@@ -19,22 +19,20 @@ class Student extends Person{
     }
 }
 
-class Teacher{
+class Teacher extends Student{
     constructor(name,age,batch,score,classStrength){
-        this.name = name;
-        this.age = age;
-        this.batch = batch;
-        this.score = score;
+        super(name,age,batch,score);
         this.classStrength = classStrength;
-    }
-    sayHello(){
-        console.log(`Hello from ${this.name}`);
     }
 }
 
-let student1 = new Student("Sheldon",29,"july batch",100);
-student1.sayHello();
-console.log(student1);
+let teacher1 = new Teacher("Siba","no idea","June Batch",90,50);
+teacher1.sayHello();
+console.log(teacher1)
+
+// let student1 = new Student("Sheldon",29,"july batch",100);
+// student1.sayHello();
+// console.log(student1);
 
 
 // let person1 = new Person("Alex","25");
