@@ -59,10 +59,18 @@ let batches = ["june batch","july batch","August batch"];
 
 let sayHelloBoundToObj2 = obj.sayHello.bind(obj2);
 
-sayHelloBoundToObj2("June","July","Aug");
+// sayHelloBoundToObj2("June","July","Aug");
 // sayHelloBoundToObj2();
 // sayHelloBoundToObj2();
 // sayHelloBoundToObj2();
 // sayHelloBoundToObj2();
 
 
+
+
+// function getDetail(){
+//     console.log(this);
+// }
+
+//changing context of global fxn to obj2 by calling it with call method
+// getDetail.call(obj2);
