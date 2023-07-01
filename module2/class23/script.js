@@ -28,14 +28,21 @@
 // fxn(gxn);
 
 
-console.log("1");
+// console.log("1");
+
+//setTimeout does not gurantee of execution of function after exactly delay it can
+// take more time depending on if call stack is empty
 
 setTimeout(function cb1(){
     console.log("3")
-},1000);
+},3000);
+
+for(let i=0;i<1000000;i++){
+    console.log(i);
+}
 
 setTimeout(function cb2(){
     console.log("2");
 },0)
 
-console.log("4");
+// console.log("4");
