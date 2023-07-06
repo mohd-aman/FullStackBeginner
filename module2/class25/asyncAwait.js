@@ -22,10 +22,25 @@ function generateBill(ordereProcesseed){
 
 
 async function serveOrder(){
-    let orderStatus = await placeOrder("coffee");
-    let ordereProcesseed = await processDrink(orderStatus);
-    let bill = await generateBill(ordereProcesseed);
-    console.log(bill);
+    try{
+        let orderStatus = await placeOrder("coffee");
+        let ordereProcesseed = await processDrink(orderStatus);
+        let bill = await generateBill(ordereProcesseed);
+        return bill;
+    }catch(error){
+        console.log(error);
+    }
 }
 
-serveOrder();
+
+(async function(){
+    let bill = await serveOrder();
+    console.log(bill);
+})();
+
+
+// let billPromise = serveOrder();
+// billPromise.then(function(bill){
+//     console.log(bill);
+// })
+// console.log(bill);
