@@ -7,9 +7,11 @@
     <title>React</title>
 </head>
 <body>
+    <h1>I am heading not with react</h1>
     <div id="root">
         <!-- <h1>Hello, World</h1> -->
     </div>
+    <h1>I am another heading not with react</h1>
     
     <!-- react cdn it has core functionalities and concepts of react  -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -24,14 +26,39 @@
         // let root = document.querySelector("#root");
         // root.appendChild(h1);
 
+
+        // <div class="parent">
+        //     <h1 class="greeting" id="one">Hello, World</h1>
+        //     <h2 class="question" id="two">How are you? </h2>
+        // </div>
+
         //React
         let h1 = React.createElement("h1",
                                     {id:"heading",className:"greeting"},
                                     "Hello, Word");
         console.log(h1);
+        
+        // jsx
+        // const h1 = <h1 id="heading" className="greeting">Hello, world!</h1>;
+        
+        let h2 = React.createElement("h2",
+                                    {id:"two",className:"question"},
+                                    "How are you?")
+        console.log(h2);
+
+        let div = React.createElement("div",{className:"parent"},[h1,h2])
+        console.log(div);
+
+        //jsx 
+        // let div =  <div class="parent">
+        //                 <h1 className="greeting" id="one">Hello, World</h1>
+        //                 <h2 className="question" id="two">How are you? </h2>
+        //             </div>
+
+
         let rootEle = document.querySelector("#root");
         let root = ReactDOM.createRoot(rootEle);
-        root.render(h1);
+        root.render(div);
 
     </script>
 </body>
