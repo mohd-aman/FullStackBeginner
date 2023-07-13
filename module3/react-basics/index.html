@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <div id="root">
+        <!-- <h1>Hello, World</h1> -->
+    </div>
+    
+    <!-- react cdn it has core functionalities and concepts of react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <!-- react-dom cdn it has functionalities related to react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    
+    <script>
+        //DOM
+        // let h1 = document.createElement("h1");
+        // h1.innerText = "Hello, Wolrd";
+        // // console.log(h1);
+        // let root = document.querySelector("#root");
+        // root.appendChild(h1);
+
+        //React
+        let h1 = React.createElement("h1",
+                                    {id:"heading",className:"greeting"},
+                                    "Hello, Word");
+        console.log(h1);
+        let rootEle = document.querySelector("#root");
+        let root = ReactDOM.createRoot(rootEle);
+        root.render(h1);
+
+    </script>
+</body>
+</html>
