@@ -1,9 +1,31 @@
 import './App.css';
+import Header from './Components/Header';
 
-function App() {
+export default function App() {
   return (
-    <h1 className='greeting'>Hello, World changes happend</h1>
+    // <div>
+    //   <Header/>
+    //   <Header/>
+    //   <Header/>
+    //   <Header/>
+    //   <Header/>
+    //   <Header/>
+    // </div>
+    
+    <>
+      <Header/>
+      <Header/>
+      <Header/>
+    </>
   );
 }
 
-export default App;
+
+//named export
+// export function AnotherApp(){
+//   return(
+//     <div>Another App</div>
+//   )
+// }
+
+// export const a = 10;
