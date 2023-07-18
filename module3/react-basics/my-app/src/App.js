@@ -4,6 +4,8 @@ import Footer from './Components/Footer';
 import UserProfile from './Components/UserProfile';
 import MyComponent from './Components/MyComponent';
 import Counter from './Components/Counter';
+import Product from './Components/Product';
+import Form from './Components/Form';
 
 export default function App() {
   return (
@@ -17,7 +19,7 @@ export default function App() {
     // </div>
     
     <>
-      <Header/>
+      {/* <Header/>
       <Header/>
       <Header/>
       <Counter/>
@@ -35,7 +37,9 @@ export default function App() {
 
       <MyComponent/>
 
-      <Footer/>
+      <Footer/> */}
+      {/* <Product/> */}
+      <Form/>
     </>
   );
 }
