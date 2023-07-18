@@ -6,6 +6,7 @@ import MyComponent from './Components/MyComponent';
 import Counter from './Components/Counter';
 import Product from './Components/Product';
 import Form from './Components/Form';
+import Ue from './Components/Ue';
 
 export default function App() {
   return (
@@ -39,7 +40,8 @@ export default function App() {
 
       <Footer/> */}
       {/* <Product/> */}
-      <Form/>
+      {/* <Form/> */}
+      <Ue/>
     </>
   );
 }
