@@ -1,25 +1,48 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import MovieCard from "./MovieCard";
+import Pagination from "./Pagination";
 
 export default function Movies(){
+    let [movies,setMovies] = useState(undefined);
+    let [pageNo,setPageNo] = useState(1);
+
+    let handleNext = ()=>{
+        setPageNo(pageNo+1);
+    }
+    
+    let handlePrev = ()=>{
+        if(pageNo>1)
+            setPageNo(pageNo-1);
+    }
+
+    useEffect(()=>{
+        axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=2816c138913c6ef73d40c883d36fbe56&page=${pageNo}`)
+        .then(function(response){
+            // console.log(response.data.results);
+            setMovies(response.data.results);
+        })
+    },[pageNo])
+
+    if(movies == undefined){
+        return(
+            <div>Loading...</div>
+        )
+    }
+
     return(
         <div className="m-4">
             <div className=" m-4 text-2xl font-bold text-center">Trending Movies</div>
 
             <div className="flex flex-wrap gap-4 justify-around">
-                <div className=" hover:scale-110 duration-300 overflow-hidden rounded-2xl h-[40vh] w-[200px] bg-cover bg-center flex items-end "
-                style={{backgroundImage:`url(https://m.media-amazon.com/images/I/81F5PF9oHhL._AC_UF894,1000_QL80_.jpg)`}}
-                >
-                <div className=" bg-stone-900/60 w-full text-center p-4 text-2xl text-white">
-                    John Wick
-                </div>
-                </div>
+                {movies.map((movieObj)=>{
+                    return <MovieCard key={movieObj.id} title={movieObj.title}  poster_path={movieObj.poster_path}/>
+                })}
                 
             </div>
 
-            <div className="flex justify-center m-4 bg-gray-500 text-white">
-                <div className=" mx-2 p-2 hover:cursor-pointer">prev</div>
-                <div className="mx-2 p-2 hover:cursor-pointer">1</div>
-                <div className="mx-2 p-2 hover:cursor-pointer">next</div>
-            </div>
+            <Pagination pageNo={pageNo} handleNext={handleNext} handlePrev={handlePrev}/>
+            
         </div>
     )
 }

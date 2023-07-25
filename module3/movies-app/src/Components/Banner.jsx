@@ -11,7 +11,7 @@ export default function Banner(){
         // console.log(response.data.results);
             let movies = response.data.results;
             let randomMovie = movies[Math.floor(20*Math.random())];
-            console.log(randomMovie);
+            // console.log(randomMovie);
             setMovieObj(randomMovie);
     })
     },[])
