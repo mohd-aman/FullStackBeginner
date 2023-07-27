@@ -17,7 +17,8 @@ function App() {
           <Movies/></>
         } ></Route>
 
-        <Route path='/watchlist' element={<WatchList/>}></Route>
+        <Route path='/watchlist' element={
+        <WatchList/>}></Route>
       </Routes>
     </BrowserRouter>
       
