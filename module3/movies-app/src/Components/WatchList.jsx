@@ -94,9 +94,9 @@ export default function WatchList() {
                         <tr>
                             <th>Name</th>
                             <th className="flex">
-                                <div className="p-2"><i class="fa-solid fa-up-long"></i></div>
+                                <div className="p-2"><i className="fa-solid fa-up-long"></i></div>
                                 <div className="p-2"> Ratings</div>
-                                <div className="p-2"><i class="fa-solid fa-down-long"></i></div></th>
+                                <div className="p-2"><i className="fa-solid fa-down-long"></i></div></th>
                             <th>Popularity</th>
                             <th>Genre</th>
                             <th className=" text-red-500">Delete</th>
@@ -112,7 +112,7 @@ export default function WatchList() {
                                 <td >{movieObj.vote_average}</td>
                                 <td>{movieObj.popularity}</td>
                                 <td>Action</td>
-                                <td className=" text-red-500 "><i class="fa-solid fa-trash"></i></td>
+                                <td className=" text-red-500 "><i className="fa-solid fa-trash"></i></td>
                             </tr>
                         })}
 

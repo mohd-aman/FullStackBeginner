@@ -38,6 +38,9 @@ export default function Movies(){
 
     useEffect(()=>{
         let favMoviesFromLocalStorage = JSON.parse(localStorage.getItem("movies-app"));
+        if(favMoviesFromLocalStorage == null){
+            return;
+        }
         setWatchList(favMoviesFromLocalStorage);
     },[])
 
