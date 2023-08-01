@@ -3,29 +3,10 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
 
-export default function Movies(){
+export default function Movies(props){
+    let {watchList,setWatchList,handleAddToWatchList,handleRemoveFromWatchList} = props
     let [movies,setMovies] = useState(undefined);
     let [pageNo,setPageNo] = useState(1);
-    let [watchList,setWatchList] = useState([]);
-
-    let handleAddToWatchList = (id)=>{
-        // let newWatchList = [...watchList];
-        // newWatchList.push(id);
-        // console.log(newWatchList);
-        // setWatchList(newWatchList);
-        //same thing in one line
-        let newWatchList = [...watchList,id];
-        localStorage.setItem("movies-app",JSON.stringify(newWatchList));
-        setWatchList(newWatchList)
-    }
-
-    let handleRemoveFromWatchList = (id)=>{
-        let newWatchList = watchList.filter((movieId)=>{
-            return movieId!=id;
-        })
-        localStorage.setItem("movies-app",JSON.stringify(newWatchList));
-        setWatchList(newWatchList);
-    }
 
     let handleNext = ()=>{
         setPageNo(pageNo+1);
@@ -36,13 +17,7 @@ export default function Movies(){
             setPageNo(pageNo-1);
     }
 
-    useEffect(()=>{
-        let favMoviesFromLocalStorage = JSON.parse(localStorage.getItem("movies-app"));
-        if(favMoviesFromLocalStorage == null){
-            return;
-        }
-        setWatchList(favMoviesFromLocalStorage);
-    },[])
+
 
     useEffect(()=>{
         axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=2816c138913c6ef73d40c883d36fbe56&page=${pageNo}`)
@@ -64,7 +39,7 @@ export default function Movies(){
 
             <div className="flex flex-wrap gap-4 justify-around">
                 {movies.map((movieObj)=>{
-                    return <MovieCard id={movieObj.id}
+                    return <MovieCard movieObj={movieObj}
                                     key={movieObj.id} 
                                     title={movieObj.title}
                                     poster_path={movieObj.poster_path}
