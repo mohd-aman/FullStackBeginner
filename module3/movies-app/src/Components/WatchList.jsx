@@ -1,19 +1,55 @@
+import { useEffect, useState } from "react";
 import genreids from "../Utility/genre";
 
 export default function WatchList(props) {
 
-    let {watchList, handleRemoveFromWatchList} = props
+    let {watchList,setWatchList ,handleRemoveFromWatchList} = props
+    let [genreList,setGenreList] = useState(["All Genres"]);
+    let [currGenre,setCurrGenre] = useState("All Genres");
+    let [search,setSearch] = useState("");
+
+    useEffect(()=>{
+        let temp = watchList.map((movieObj)=>{
+            return genreids[movieObj.genre_ids[0]];
+        })
+        temp = new Set(temp);
+        setGenreList(["All Genres",...temp]);
+    },[watchList])
+
+    let handleFilter = (genre)=>{
+        setCurrGenre(genre)
+    }
+
+    let handleSearch = (e)=>{
+        setSearch(e.target.value);
+    }
+
+    let sortIncreasing = ()=>{
+        let sorted = watchList.sort((movieA,movieB)=>{
+            return movieA.vote_average - movieB.vote_average;
+        })
+        setWatchList([...sorted]);
+    }
+    
+    let sortDecreasing = ()=>{
+        let sorted = watchList.sort((movieA,movieB)=>{
+            return movieB.vote_average-movieA.vote_average
+        })
+        setWatchList([...sorted])
+    }
     
     return (
         <>
-            <div className=" flex justify-center">
-                <div className="h-[3rem] w-[15rem] bg-blue-400
-                 rounded-xl text-white flex justify-center items-center 
-                 font-bold ">All Genres</div>
+            <div className=" flex justify-center flex-wrap">
+                {genreList.map((genre)=>{
+                    return <div onClick={()=>handleFilter(genre)} className={currGenre == genre?"m-4 h-[3rem] w-[15rem] bg-blue-400 rounded-xl text-white flex justify-center items-center font-bold ":
+                    "m-4 h-[3rem] w-[15rem] bg-gray-400 rounded-xl text-white flex justify-center items-center font-bold hover:cursor-pointer"}>{genre}</div>
+                })}
+                
             </div>
 
             <div className="flex justify-center my-4">
-                <input className="h-[3rem] w-[18rem] bg-gray-200
+                <input onChange={handleSearch} value={search} className="h-[3rem] w-[18rem] bg-gray-200
                  outline-none px-4 text-lg "
                  placeholder="Search Movies"
                 type="text" />
@@ -25,16 +61,25 @@ export default function WatchList(props) {
                         <tr>
                             <th>Name</th>
                             <th className="flex">
-                                <div className="p-2"><i className="fa-solid fa-up-long"></i></div>
+                                <div onClick={sortIncreasing} className="p-2"><i className="fa-solid fa-up-long"></i></div>
                                 <div className="p-2"> Ratings</div>
-                                <div className="p-2"><i className="fa-solid fa-down-long"></i></div></th>
+                                <div onClick={sortDecreasing} className="p-2"><i className="fa-solid fa-down-long"></i></div></th>
                             <th>Popularity</th>
                             <th>Genre</th>
                             <th className=" text-red-500">Delete</th>
                         </tr>
                     </thead>
                     <tbody >
-                        {watchList.map((movieObj) => {
+                        {watchList.filter((movieObj)=>{
+                            if(currGenre == "All Genres"){
+                                return true;
+                            }
+                            return genreids[movieObj.genre_ids[0]] == currGenre;
+                        })
+                        .filter((movieObj)=>{
+                            return movieObj.title.toLowerCase().includes(search.toLowerCase());
+                        })
+                        .map((movieObj) => {
                             return <tr className=" border-b-2">
                                 <td className="flex items-center mx-4 py-4"> <img className="h-[6rem] w-[10rem]"
                                     src={"https://image.tmdb.org/t/p/original/" + movieObj.poster_path} alt="" />
