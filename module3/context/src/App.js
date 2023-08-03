@@ -2,6 +2,7 @@
 import './App.css';
 import FamilyComp from './contextComponent/FamilyComp';
 import { FamilyContext } from './contextComponent/FamilyContext';
+import Memo from './Memo';
 import Family from './prop_drill/Family';
 import Ref from './Ref';
 
@@ -28,7 +29,8 @@ function App() {
     //     <FamilyComp/>
     // </FamilyContext.Provider>
 
-    <Ref/>
+    // <Ref/>
+    <Memo/>
    
   );
 }
