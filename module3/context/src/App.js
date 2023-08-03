@@ -1,6 +1,7 @@
 
 import './App.css';
 import FamilyComp from './contextComponent/FamilyComp';
+import { FamilyContext } from './contextComponent/FamilyContext';
 import Family from './prop_drill/Family';
 
 function App() {
@@ -13,14 +14,18 @@ function App() {
     onlyForChild:()=>{
       return "Info for Child"
     },
-    onlyeForGrandChildren:()=>{
+    onlyForGrandChildren:()=>{
       return "Info for GrandChild"
-    }
+    },
+    
   }
 
   return (
     // <Family info={familyInfo}/>
-    <FamilyComp/>
+    <FamilyContext.Provider value={familyInfo}>
+        <FamilyComp/>
+    </FamilyContext.Provider>
+   
   );
 }
 

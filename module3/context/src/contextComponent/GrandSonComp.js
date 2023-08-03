@@ -1,8 +1,12 @@
+import { useContext } from "react"
+import { FamilyContext } from "./FamilyContext"
 
 export default function GrandSonComp(){
+
+   const info = useContext(FamilyContext)
     return(
         <div className="grandSon">
-            I am grand son
+            <h4>{info.onlyForGrandChildren()}</h4>
         </div>
     )
 }
