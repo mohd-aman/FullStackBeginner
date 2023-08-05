@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 export default function Navbar(){
        let items = useSelector((state)=>state.cart);
-       console.log(items);
+    //    console.log(items);
 
     return(
         <div style={{
