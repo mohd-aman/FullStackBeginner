@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {add} from "../Store/cartSlice"
-import { fetchProducts } from "../Store/productSlice";
+import { fetchProducts,STATUSES } from "../Store/productSlice";
 
 export default function Product(){
     let {data,status} = useSelector((state)=>state.products)
@@ -16,10 +16,10 @@ export default function Product(){
         dispatch(fetchProducts());
     },[])
 
-    if(status == "loading"){
+    if(status == STATUSES.LOADING){
         return <h2>...Loading</h2>
     }
-    if(status == "error"){
+    if(status == STATUSES.ERROR){
         return <h2>Oops, Something went wrong</h2>
     }
 
