@@ -38,7 +38,7 @@ const Todo = () => {
   const deleteTask = (id) => {
     console.log(`Task with ${id} to remove!`)
     const filteredTask = list.filter((task) => task.id !== id);
-    setList([...filteredTask]);
+    setList(filteredTask);
   }
 
   return (
