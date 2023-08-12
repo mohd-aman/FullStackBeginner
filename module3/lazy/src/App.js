@@ -6,6 +6,8 @@ import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 // import About from './Pages/About';
 import Products from './Pages/Products';
+import Controlled from './Components/Controlled';
+import Uncontrolled from './Components/Uncontrolled';
 // import Testimonials from './Pages/Testimonials';
 // import {moviesData} from "./data.js"
 
@@ -50,13 +52,16 @@ function App() {
   // </BrowserRouter>
   // </Suspense>
     
-  <>
-    <HOC dark/>
-    <HOC yellow/>
-  </>
+  // <>
+  //   <HOC dark/>
+  //   <HOC yellow/>
+  // </>
 
   
-  
+  <>
+    <Controlled/>
+    <Uncontrolled/>
+  </>
 
   );
 }
