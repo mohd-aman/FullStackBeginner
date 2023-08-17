@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 
 export default function Banner(){
     let [movieObj,setMovieObj] = useState({});
-
-
     useEffect(()=>{
         axios.get("https://api.themoviedb.org/3/trending/movie/day?api_key=2816c138913c6ef73d40c883d36fbe56")
         .then(function(response){
