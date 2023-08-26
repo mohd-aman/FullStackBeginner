@@ -38,6 +38,22 @@ app.post("/products",(req,res)=>{
     res.send("data added");
 })
 
+app.put('/products/:id',(req,res)=>{
+    const id = req.params.id;
+    // [{id:1,"title":"phone"},{id:2,title:"laptop"},{id:3,title:"mouse"}]
+    const productIndex = products.findIndex(obj => obj.id == id);
+    products.splice(productIndex,1,{id:id, ...req.body})
+    res.send("data updated with PUT")
+})
+
+app.patch('/products/:id',(req,res)=>{
+    const id = req.params.id;
+    const productIndex = products.findIndex(obj => obj.id == id);
+    const product = products[productIndex];
+    products.splice(productIndex,1, {...product,...req.body});
+    res.send("data updated with PATCH")
+})
+
 app.delete("/products/:id",(req,res)=>{
     const id = req.params.id;
     // [{id:1,"title":"phone"},{id:2,title:"laptop"},{id:3,title:"mouse"}]
