@@ -39,3 +39,40 @@ async function createCourse(){
 }
 
 // createCourse();
+
+// operators 
+// $lt
+// lte 
+// gte 
+// gt 
+// in
+// not in
+
+async function getCourse(){
+    // const course = await Course.find({rating:{$lte:3.5}});
+    const course = await Course.findById("64ed5c6a2d37a689a162823c");
+    console.log(course);
+}
+
+// getCourse();
+
+async function updateCourse(id){
+    let course = await Course.findById(id);
+    if(!course){
+        return
+    }
+    course.name = "Scala"
+    course.creator = "Carey"
+    const updatedCourse = await course.save();
+    console.log(updatedCourse)
+}
+
+// updateCourse("64ed5c6a2d37a689a162823c");
+
+async function deleteCourse(id){
+    const deletedCourse = await Course.findByIdAndDelete(id);
+    console.log(deletedCourse);
+}
+
+
+deleteCourse("64ed5c9ffcd52a647a0314cc");
