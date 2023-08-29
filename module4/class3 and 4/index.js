@@ -50,8 +50,10 @@ async function createCourse(){
 
 async function getCourse(){
     // const course = await Course.find({rating:{$lte:3.5}});
-    const course = await Course.findById("64ed5c6a2d37a689a162823c");
-    console.log(course);
+    
+    // const course = await Course.findById("64ed5c6a2d37a689a162823c");
+    const count = await Course.find({rating:{$lte:3.5}}).countDocuments();;
+    console.log(count);
 }
 
 // getCourse();
@@ -75,4 +77,4 @@ async function deleteCourse(id){
 }
 
 
-deleteCourse("64ed5c9ffcd52a647a0314cc");
+// deleteCourse("64ed5c9ffcd52a647a0314cc");
