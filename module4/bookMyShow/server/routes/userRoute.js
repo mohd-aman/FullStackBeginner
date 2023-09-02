@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt")
 const User = require("../models/userModel");
+const jwt = require('jsonwebtoken');
+const authMiddleware = require("../middlewares/authMiddleware");
+
 
 router.post('/register',async (req,res)=>{
     // console.log(req.body);
@@ -51,9 +54,13 @@ router.post('/login',async (req,res)=>{
             })
         }
 
+        const token = jwt.sign({userId:user._id},process.env.jwt_secret_key,{expiresIn:"1d"});
+        console.log(token);
+
         res.send({
             success:true,
-            message:"User Logged In"
+            message:"User Logged In",
+            token:token
         })
 
     }catch(err){
@@ -61,6 +68,23 @@ router.post('/login',async (req,res)=>{
     }
     
 
+})
+
+router.get("/get-current-user",authMiddleware ,async (req,res)=>{
+    try{
+        const user = await User.findById(req.body.userId);
+        console.log(user);
+        res.send({
+            success:true,
+            message:"Users details fetched!",
+            data:user
+        })
+    }catch(err){
+        res.send({
+            success:false,
+            message:err.message
+        })
+    }
 })
 
 module.exports = router;
