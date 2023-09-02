@@ -1,22 +1,20 @@
 import React from 'react'
 import {Form, message} from "antd";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { LoginUser } from '../../apicalls/users'
 
 const Login = () => {
+  const navigate = useNavigate();
   const onFinish = async (values)=>{
     try{
        //make a post req 
-   const response = await axios.post('http://localhost:8080/api/users/login', values, {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  } )
-  console.log(response);
-  const res = response.data;
+   
+   const res = await LoginUser(values)
   if(res.success){
     message.success(res.message)
+    navigate('/');
   }else{
     message.error(res.message);
   }

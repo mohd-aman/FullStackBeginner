@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from "../../components/Button"
 import {Link} from 'react-router-dom'
-import axios from 'axios'
 
 import { Form, message } from 'antd'
+import { RegisterUser } from '../../apicalls/users'
 
 const Register = () => {
 
@@ -11,14 +11,7 @@ const Register = () => {
     try{
       console.log(values);
     //make the post request
-    const response = await axios.post('http://localhost:8080/api/users/register', values, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-  )
-  console.log(response);
-  const res = response.data;
+    const res = await RegisterUser(values);
   if(res.success){
     message.success(res.message);
   }else{
