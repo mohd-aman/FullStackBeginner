@@ -46,29 +46,29 @@ function ProtectedRoute({ children }) {
         <div className="header bg-primary flex justify-between p-2">
           <div>
             <h1 className="text-2xl text-white cursor-pointer"
-              // onClick={() => navigate("/")}
+              onClick={() => navigate("/")}
             >Book My Show</h1>
           </div>
           <div className="bg-white p-1 flex gap-1">
             <i className="ri-shield-user-line text-primary mt-1"></i>
             <h1
               className="text-sm underline"
-              // onClick={() => {
-              //   if (user.isAdmin) {
-              //     navigate("/admin");
-              //   } else {
-              //     navigate("/profile");
-              //   }
-              // }}
+              onClick={() => {
+                if (user.isAdmin) {
+                  navigate("/admin");
+                } else {
+                  navigate("/profile");
+                }
+              }}
             >
               {user.name}
             </h1>
             <i
               className="ri-logout-box-r-line mt-1"
-              // onClick={() => {
-              //   localStorage.removeItem("token");
-              //   navigate("/login");
-              // }}
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
             ></i>
           </div>
         </div>

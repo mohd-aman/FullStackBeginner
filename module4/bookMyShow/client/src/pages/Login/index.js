@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Form, message} from "antd";
 import Button from "../../components/Button";
 import { Link,useNavigate } from "react-router-dom";
@@ -16,16 +16,22 @@ const Login = () => {
     message.success(res.message)
     // console.log(res);
     localStorage.setItem('token',res.token);
-    // navigate('/');
-    window.location.href = '/';
+    navigate('/');
+    // window.location.href = '/';
   }else{
     message.error(res.message);
   }
     }catch(err){
       message.error(err.message);
     }
-  
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div className="flex justify-center h-screen items-center bg-primary">
     <div className="card p-3 w-400">

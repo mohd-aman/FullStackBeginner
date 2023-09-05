@@ -1,11 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Button from "../../components/Button"
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 
 import { Form, message } from 'antd'
 import { RegisterUser } from '../../apicalls/users'
 
 const Register = () => {
+  const navigate = useNavigate();
 
   const onFinish = async (values)=>{
     try{
@@ -19,9 +20,14 @@ const Register = () => {
   }
     }catch(err){
       message.error(err.message);
-    }
-    
+    }    
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, []);
 
     return (
         <div className="flex justify-center h-screen items-center bg-primary">
