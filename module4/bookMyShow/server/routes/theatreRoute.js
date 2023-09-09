@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const authMiddleware = require("../middlewares/authMiddleware");
 const Theatre = require('../models/theatreModel');
+const Show = require('../models/showModels')
 
 //add theatre
 
@@ -85,4 +86,22 @@ router.get('/get-all-theatres',authMiddleware,async(req,res)=>{
         })
     }
 })
+
+//add a show
+router.post('/add-show',authMiddleware,async(req,res)=>{
+    try{
+        const newShow = new Show(req.body);
+        await newShow.save();
+        res.send({
+            success:true,
+            message:"Show added"
+        })
+    }catch(err){
+        res.send({
+            success:false,
+            message:err.message
+        })
+    }
+})
+
 module.exports = router;

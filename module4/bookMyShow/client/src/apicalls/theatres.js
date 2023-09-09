@@ -44,3 +44,14 @@ export const GetAllTheatres = async()=>{
         return err.response
     }
 }
+
+//add a show
+
+export const AddShow = async(payload)=>{
+    try{
+        const response = await axiosInstance.post('/api/theatres/add-show',payload);
+        return response.data
+    }catch(err){
+        return err.response;
+    }
+}
