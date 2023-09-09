@@ -104,4 +104,38 @@ router.post('/add-show',authMiddleware,async(req,res)=>{
     }
 })
 
+//get shows based on theatres
+router.post('/get-all-show-by-theatre',authMiddleware,async (req,res)=>{
+    try{
+        const shows = await Show.find({theatre:req.body.theatreId}).populate("movie");
+        res.send({
+            success:true,
+            message:"Shows fetched",
+            data:shows
+        })
+
+    }catch(err){   
+        res.send({
+            success:false,
+            message:err.message
+        })
+    }
+})
+
+//delete shows
+router.post('/delete-show',authMiddleware,async(req,res)=>{
+    try{
+        await Show.findByIdAndDelete(req.body.showId);
+        res.send({
+            success:true,
+            message:"Shows Deleted"
+        })
+    }catch(err){
+        res.send({
+            success:false,
+            message:err.message
+        })
+    }
+})
+
 module.exports = router;
