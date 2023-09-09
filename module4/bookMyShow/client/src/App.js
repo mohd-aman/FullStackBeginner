@@ -25,6 +25,13 @@ function App() {
                           <Home/>
                         </ProtectedRoute>
         }/>
+        <Route path="/movie/:id"
+          element={
+            <ProtectedRoute>
+              
+            </ProtectedRoute>
+          }
+        />
         <Route path='/admin' element={
                         <ProtectedRoute>
                           <Admin/>
