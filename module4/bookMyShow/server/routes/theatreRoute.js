@@ -157,7 +157,7 @@ router.post('/get-all-theatres-by-movie',authMiddleware,async(req,res)=>{
         })
         res.send({
             success:true,
-            message:"success",
+            message:"Unique Theatres Fetched",
             data:uniqueTheatres
         })
     }catch(err){
