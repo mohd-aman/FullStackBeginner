@@ -14,6 +14,7 @@ import Register from './pages/Register';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Admin from "./pages/Admin";
 import Profile from "./pages/Profile";
+import TheatresForMovie from "./pages/TheatresForMovie";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Route path="/movie/:id"
           element={
             <ProtectedRoute>
-              
+              <TheatresForMovie/>
             </ProtectedRoute>
           }
         />

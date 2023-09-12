@@ -5,11 +5,13 @@ import { GetAllMovies } from '../../apicalls/movies';
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 export default function Home(){
     const navigate = useNavigate();
     const [searchText, setSearchText] = React.useState("");
     const [movies, setMovies] = React.useState([]);
+    
     const dispatch = useDispatch();
 
     const getData = async () => {
@@ -45,7 +47,7 @@ export default function Home(){
               className="card flex flex-col gap-1 cursor-pointer"
               onClick={() =>
                 navigate(
-                  `/movie/${movie._id}`
+                  `/movie/${movie._id}?date=${moment().format("YYYY-MM-DD")}`
                 )
               }
             >

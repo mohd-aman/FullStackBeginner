@@ -22,7 +22,7 @@ export const GetAllMovies = async ()=>{
 //get movie by id
 export const GetMovieById = async(id)=>{
     try{
-        const response = await axiosInstance.get(`api/movies/get-movie-by-id/${id}`);
+        const response = await axiosInstance.get(`/api/movies/get-movie-by-id/${id}`);
         return response.data;
     }catch(err){
         return err.response
