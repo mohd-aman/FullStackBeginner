@@ -7,7 +7,7 @@ import { GetShowById } from "../../apicalls/theatres";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import StripeCheckout from "react-stripe-checkout";
 import Button from "../../components/Button";
-import {  MakePayment } from "../../apicalls/bookings";
+import { BookShowTickets, MakePayment } from "../../apicalls/bookings";
 
 
 
@@ -18,7 +18,7 @@ function BookShow() {
   const [selectedSeats, setSelectedSeats] = React.useState([]);
   const params = useParams();
   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const getData = async () => {
     try {
@@ -89,53 +89,27 @@ function BookShow() {
     );
   };
 
-
-
-
-//   const book = async (transactionId) => {
-
-//     try {
-
-//       dispatch(ShowLoading());
-
-//       const response = await BookShowTickets({
-
-//         show: params.id,
-
-//         seats: selectedSeats,
-
-//         transactionId,
-
-//         user: user._id,
-
-//       });
-
-//       if (response.success) {
-
-//         message.success(response.message);
-
-//         navigate("/profile");
-
-//       } else {
-
-//         message.error(response.message);
-
-//       }
-
-//       dispatch(HideLoading());
-
-//     } catch (error) {
-
-//       message.error(error.message);
-
-//       dispatch(HideLoading());
-
-//     }
-
-//   };
-
-
-
+  const book = async (transactionId) => {
+    try {
+      dispatch(ShowLoading());
+      const response = await BookShowTickets({
+        show: params.id,
+        seats: selectedSeats,
+        transactionId,
+        user: user._id,
+      });
+      if (response.success) {
+        message.success(response.message);
+        navigate("/profile");
+      } else {
+        message.error(response.message);
+      }
+      dispatch(HideLoading());
+    } catch (error) {
+      message.error(error.message);
+      dispatch(HideLoading());
+    }
+  };
 
   const onToken = async (token) => {
     console.log(token)
@@ -148,7 +122,7 @@ function BookShow() {
       if (response.success) {
         message.success(response.message);
         console.log(response.data);
-        //  book(response.data);
+        book(response.data);
       } else {
         message.error(response.message);
       }
@@ -159,17 +133,12 @@ function BookShow() {
     }
   };
 
-
-
-
    useEffect(() => {
      getData();
   }, []);
 
   return (
-
     show && (
-
       <div>
         {/* show infomation */}
         <div className="flex justify-between card p-2 items-center">
